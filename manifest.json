@@ -1,0 +1,26 @@
+{
+	"manifest_version": 3,
+	"name": "Lazy Diver",
+	"version": "1.0",
+	"description": "Dive down a web page at your leisure",
+	"permissions": ["activeTab", "storage"],
+	"icons": {
+		"16": "pinny-non-diver.png",
+		"48": "pinny-non-diver.png",
+		"128": "pinny-non-diver.png"
+	},
+	"action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"16": "pinny-non-diver.png",
+			"48": "pinny-non-diver.png",
+			"128": "pinny-non-diver.png"
+		}
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["content.js"]
+		}
+	]
+}
