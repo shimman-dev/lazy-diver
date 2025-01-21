@@ -7,12 +7,13 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": []
+		"ignore": ["dist/*", "assets/*"]
 	},
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab",
-		"indentWidth": 2
+		"indentWidth": 2,
+		"lineWidth": 120
 	},
 	"organizeImports": {
 		"enabled": true
