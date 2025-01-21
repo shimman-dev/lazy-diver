@@ -5,92 +5,109 @@ body {
 	background-color: #f8f9fa;
 }
 
-.settings-group {
-	margin-bottom: 1rem;
+header {
+	display: flex;
+	gap: 16px;
+	width: 80vw;
+}
+
+h1 {
+	margin: 0;
+}
+
+.Pinny-diving-area {
+	display: flex;
+	justify-content: center;
+	width: 30%;
+}
+
+.Pinny-diving-area.water {
+	background-color: rgba(169, 237, 255, 0.5);
+	outline: solid 2px;
+}
+
+p {
+	margin: 8px 0;
+}
+
+.Dive-setting-controls {
+	margin-bottom: 8px;
+	width: 75vw;
+}
+
+.Dive-setting-controls:last-child {
+	margin-bottom: 0;
 }
 
 label {
 	display: block;
-	margin-bottom: 0.25rem;
+	margin-bottom: 4px;
 	font-size: 0.875rem;
 	font-weight: 500;
 	color: #495057;
 }
 
-.input-help {
+.Input-help-text {
 	font-size: 0.75rem;
 	color: #6c757d;
-	margin-bottom: 0.25rem;
+	margin-bottom: 4px;
 }
 
 input {
 	width: 100%;
 	padding: 0.5rem;
-	border: 1px solid #ced4da;
+	border: 2px solid #000;
 	border-radius: 4px;
-	margin-bottom: 0.5rem;
 	font-size: 0.875rem;
 }
 
 input:focus {
 	outline: none;
-	border-color: #80bdff;
-	box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+	border-color: rgba(169, 237, 255, 0.5);
 }
 
-button {
-	width: 100%;
-	margin: 0.5rem 0;
-	padding: 0.75rem;
-	border: none;
+fieldset {
+	border: 2px solid #000;
 	border-radius: 4px;
-	background-color: #007bff;
-	color: white;
-	cursor: pointer;
-	transition: background-color 0.2s;
+	padding: 15px;
+	margin: 10px 0;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	width: 70vw;
 }
 
-button.disabled {
-	background-color: #ccc;
-	cursor: not-allowed;
-}
-
-button:not(.disabled):hover {
-	background-color: #0056b3;
-}
-
-button:not(.disabled):active {
-	background-color: #004085;
-}
-
-#stopBtn {
-	background-color: #dc3545;
-}
-
-#stopBtn:not(.disabled):hover {
-	background-color: #c82333;
-}
-
-#stopBtn:not(.disabled):active {
-	background-color: #bd2130;
-}
-
-.status {
+legend {
+	font-size: 1.1rem;
+	padding: 0 10px;
+	font-family: sans-serif;
 	text-align: center;
-	padding: 0.5rem;
-	margin-bottom: 1rem;
-	border-radius: 4px;
-	font-weight: 500;
 }
 
-.status.active {
-	background-color: #d4edda;
-	color: #155724;
-	border: 1px solid #c3e6cb;
+.Fieldset-controller {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 8px;
 }
 
-.status.inactive {
-	background-color: #f8d7da;
-	color: #721c24;
-	border: 1px solid #f5c6cb;
+input[type="radio"] {
+	appearance: none;
+	-webkit-appearance: none;
+	width: 24px;
+	height: 24px;
+	border: 2px solid #000;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+input[type="radio"]:checked {
+	background-color: #000;
+}
+
+.Fieldset-controller label.Controller-label {
+	font-size: 1.1rem;
+	cursor: pointer;
+	align-self: center;
+	margin-right: 8px;
+	margin-bottom: 0px;
 }

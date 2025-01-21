@@ -1,40 +1,34 @@
-interface ScrollSettings {
-	scrollPercent: number;
-	intervalSeconds: number;
-}
-
-interface ScrollMessage {
-	command: "start" | "stop" | "getState";
-	settings?: ScrollSettings;
-}
+import type { ScrollMessage, ScrollSettings } from "./popup.ts";
 
 let scrollInterval: number | undefined;
-
+console.log("Lazy Diver content script loaded");
 function updateState(isActive: boolean) {
 	chrome.storage.local.set({ isScrolling: isActive });
 }
 
-chrome.runtime.onMessage.addListener(
-	(message: ScrollMessage, _, sendResponse) => {
-		console.log("Lazy Diver 🤿 received command:", message);
+chrome.runtime.onMessage.addListener((message: ScrollMessage, _, sendResponse) => {
+	console.log("Lazy Diver 🤿 received command:", message);
 
-		if (message.command === "start") {
-			if (message.settings) {
-				startScrolling(message.settings);
-				updateState(true);
-			}
-			sendResponse({ status: "started" });
-		} else if (message.command === "stop") {
-			stopScrolling();
-			updateState(false);
-			sendResponse({ status: "stopped" });
-		} else if (message.command === "getState") {
-			sendResponse({ isScrolling: !!scrollInterval });
+	if (message.command === "start") {
+		if (!message.settings) {
+			console.error("No settings provided for start command");
+			sendResponse({ error: "Missing settings" });
+			return true;
 		}
+		startScrolling(message.settings);
+		sendResponse({ status: "started", isScrolling: true });
+	} else if (message.command === "stop") {
+		stopScrolling();
+		sendResponse({ status: "stopped", isScrolling: false });
+	} else if (message.command === "getState") {
+		sendResponse({ isScrolling: !!scrollInterval });
+	} else {
+		console.error("Unknown command received:", message.command);
+		sendResponse({ error: "Unknown command" });
+	}
 
-		return true;
-	},
-);
+	return true;
+});
 
 function startScrolling(settings: ScrollSettings): void {
 	stopScrolling();
@@ -77,9 +71,9 @@ function startScrolling(settings: ScrollSettings): void {
 	console.log("Diving started:", scrollInterval);
 }
 
-function stopScrolling(): void {
+const stopScrolling = (): void => {
 	if (scrollInterval) {
 		window.clearInterval(scrollInterval);
 		scrollInterval = undefined;
 	}
-}
+};
