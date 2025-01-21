@@ -1,12 +1,7 @@
-import { defineConfig } from "vite";
-import { resolve, join } from "node:path";
-import {
-	copyFileSync,
-	mkdirSync,
-	existsSync,
-	createWriteStream,
-} from "node:fs";
+import { copyFileSync, createWriteStream, existsSync, mkdirSync } from "node:fs";
+import { join, resolve } from "node:path";
 import archiver from "archiver";
+import { defineConfig } from "vite";
 
 const copyAssetsZip = () => {
 	return {
