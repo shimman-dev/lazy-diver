@@ -34,10 +34,12 @@ const loadSettings = (): void => {
 	});
 };
 
-const updateIcon = (active: boolean) => {
+const updateIconsText = (active: boolean) => {
 	const pinnyImage = document.querySelector("img.Pinny") as HTMLImageElement;
 	const divingArea = document.querySelector(".Pinny-diving-area") as HTMLDivElement;
+	const legend = document.querySelector("legend") as HTMLLegendElement;
 
+	legend.textContent = active ? "Continue Diving?" : "Start Diving?";
 	divingArea.classList.toggle("water", active);
 	pinnyImage.src = active ? "pinny-diver.png" : "pinny-non-diver.png";
 
@@ -80,11 +82,6 @@ const updateStatus = (active: boolean) => {
 	isActive = active;
 	const yesRadio = document.getElementById("yes") as HTMLInputElement;
 	const noRadio = document.getElementById("no") as HTMLInputElement;
-	const legend = document.querySelector("legend") as HTMLLegendElement;
-
-	if (legend.textContent === "Start Diving?") {
-		legend.textContent = "Continue Diving?";
-	}
 
 	if (active) {
 		yesRadio.checked = true;
@@ -94,7 +91,7 @@ const updateStatus = (active: boolean) => {
 		noRadio.checked = true;
 	}
 
-	updateIcon(active);
+	updateIconsText(active);
 };
 
 const checkScrollingState = () => {
