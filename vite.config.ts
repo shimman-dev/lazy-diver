@@ -1,5 +1,5 @@
 import { copyFileSync, createWriteStream, existsSync, mkdirSync } from "node:fs";
-import { join, resolve } from "node:path";
+import { resolve } from "node:path";
 import archiver from "archiver";
 import { defineConfig } from "vite";
 
@@ -19,7 +19,7 @@ const copyAssetsZip = () => {
 
 				console.log("✓ all assets successfully copied");
 
-				const output = createWriteStream("lazy-diver.zip");
+				const output = createWriteStream("lazy-diver-extension.zip");
 				const archive = archiver("zip", { zlib: { level: 9 } });
 
 				archive.pipe(output);
