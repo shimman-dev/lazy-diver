@@ -1,7 +1,11 @@
 {
 	"name": "lazy-diver",
 	"private": true,
-	"version": "2.0.0",
+	"version": "2.1.0",
+	"engines": {
+		"node": "20.18.2",
+		"npm": "10.8.2"
+	},
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
