@@ -40,6 +40,8 @@ Currently available on the Chrome Web Store:
 
 #### Manual Installation
 
+#### [if my heart fails will you get me out of here take me by the water](https://www.youtube.com/watch?v=E5axcCgXIRM#t=1m15s)
+
 **Please note:** Manual installation requirements are the following:
 
 - Node version `20.18.2` 
